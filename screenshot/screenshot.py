@@ -1,6 +1,7 @@
 import pyautogui
 import time
-from tkinter import filedialog
+from tkinter import Tk, Label, Frame, filedialog, Button, LEFT
+import tkinter
 
 def screenshot():
     name = int(round(time.time() * 1000))
@@ -12,7 +13,22 @@ def screenshot():
     img.show()
 
 if __name__ == '__main__':
-    screenshot()
+    root = Tk()
+    frame = Frame(root)
+    frame.pack()
+    button = Button(
+        frame,
+        text="Take Screenshot",
+        command=screenshot
+    )
+    button.pack(side=LEFT)
+    close = Button(
+        frame,
+        text="Quit",
+        command=quit)
+    close.pack(side=LEFT)
+    root.mainloop()
 
+    root.mainloop()
 
 

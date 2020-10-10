@@ -12,7 +12,7 @@ def update():
     n = notify2.Notification(None, icon='')
     n.set_urgency(notify2.URGENCY_NORMAL) 
     n.set_timeout(10000)
-    list_of_states=list(filter(lambda state:(state['statecode']=='TN' or state['statecode']=='WB'), statewise))
+    # list_of_states=list(filter(lambda state:(state['statecode']=='TN' or state['statecode']=='WB'), statewise))
     [ (n.update("Covid Notifier", f'{state["state"]} Status:\n {state["active"]}'), n.show(), time.sleep(5)) for state in list_of_states]
 
     # [ (n.update("Covid Notifier", f'{state["state"]} Status:\n {state["active"]}'), n.show(), time.sleep(5))  for state in statewise]

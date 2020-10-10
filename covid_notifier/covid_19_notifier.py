@@ -12,10 +12,14 @@ def update():
     n.set_urgency(notify2.URGENCY_NORMAL) 
     n.set_timeout(10000) 
 
-    for state in statewise:
-        if state["statecode"] == 'WB' or state["statecode"] == 'TN':
-            n.update("Covid Notifier", f'{state["state"]} Status:\n {state["active"]}')
-            n.show() 
-            time.sleep(15)
+
+    # [ (n.update("Covid Notifier", f'{state["state"]} Status:\n {state["active"]}'), n.show(), time.sleep(5))  for state in statewise]
+    [ (n.update("Covid Notifier", f'{state["state"]} Status:\n {state["active"]}'), n.show(), time.sleep(5))  for state in statewise if state["statecode"] == 'WB' or state["statecode"] == 'TN']
+    
+    # for state in statewise:
+    #     if state["statecode"] == 'WB' or state["statecode"] == 'TN':
+    #         n.update("Covid Notifier", f'{state["state"]} Status:\n {state["active"]}')
+    #         n.show() 
+    #         time.sleep(15)
 
 update()

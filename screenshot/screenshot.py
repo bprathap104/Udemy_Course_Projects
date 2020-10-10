@@ -29,6 +29,5 @@ if __name__ == '__main__':
     close.pack(side=LEFT)
     root.mainloop()
 
-    root.mainloop()
 
 
